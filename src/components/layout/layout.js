@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import styles from "./layout.module.css"
 import "./global.css"
 
 const Layout = ({ children }) => {
@@ -17,12 +18,16 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{children}</main>
+    <div className={styles.container}>
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        className={styles.header}
+      />
+      <div className={styles.main}>
+        <div className={styles.heroImage}></div>
+        <div className={styles.content}>{children}</div>
       </div>
-    </>
+    </div>
   )
 }
 
