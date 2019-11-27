@@ -1,7 +1,26 @@
+@import "components/ui/colors.css";
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+
+  a {
+    color: var(--color-secondary);
+  }
+
+  .logo {
+    display: inline-flex;
+    margin: 0;
+    font-size: 18px;
+    color: var(--color-secondary);
+
+    a {
+      text-decoration: none;
+    }
+  }
 }

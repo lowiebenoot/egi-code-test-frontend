@@ -8,7 +8,7 @@ import styles from "./header.module.css"
 
 const Header = ({ siteTitle, className }) => (
   <header className={cx(className, styles.header)}>
-    <h1>
+    <h1 className={styles.logo}>
       <Link to="/">{siteTitle}</Link>
     </h1>
     <Navigation />

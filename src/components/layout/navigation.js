@@ -5,9 +5,9 @@ import styles from "./navigation.module.css"
 
 const Navigation = () => (
   <nav className={styles.navigation}>
-    <Link to="/home">home</Link>
-    <Link to="/home">categories</Link>
-    <Link to="/home">contact</Link>
+    <Link to="/">home</Link>
+    <Link to="/categories">categories</Link>
+    <Link to="/">contact</Link>
   </nav>
 )
 

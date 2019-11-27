@@ -1,11 +1,12 @@
+@import "components/ui/colors.css";
+
 :root {
-  --header-height: 100px;
+  --header-height: 60px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .header {
@@ -14,16 +15,28 @@
 
 .main {
   flex: 1;
-  background: #ccc;
   display: flex;
+  height: calc(100vh - var(--header-height));
 }
 
 .heroImage {
-  flex: 1;
+  flex: 2;
   height: 100%;
-  background: red;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.66)
+    ),
+    url("/images/home-banner.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .content {
-  flex: 1;
+  flex: 3;
+  padding: 100px 100px 40px 100px;
+
+  a {
+    color: var(--color-accent);
+  }
 }
