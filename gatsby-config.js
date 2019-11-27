@@ -28,6 +28,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `got`,
+        typeName: `GotApi`,
+        url: `http://localhost:3000/graphql`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
