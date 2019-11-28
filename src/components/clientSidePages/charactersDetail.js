@@ -33,15 +33,14 @@ const CharactersDetailPage = ({ characterId }) => {
           const character = data.character
           const name = getName(character)
           const playedBy = getPlayedBy(character)
-
-          console.log(playedBy)
+          const aliases = character.aliases && character.aliases.filter(Boolean)
 
           return (
             <>
               <SEO title={name} />
               <h1>{name}</h1>
 
-              {character.aliases && character.aliases.length > 0 && (
+              {aliases && aliases.length > 0 && (
                 <div>
                   <strong>Aliases:</strong>
                   <ul>
