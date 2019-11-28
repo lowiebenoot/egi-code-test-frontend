@@ -1,8 +1,8 @@
 import React from "react"
 
-import Layout from "../components/layout/layout"
-import SEO from "../components/layout/seo"
-import { getName } from "../utils/character"
+import Layout from "../layout/layout"
+import SEO from "../layout/seo"
+import { getName } from "../../utils/character"
 
 export const query = graphql`
   query {
@@ -18,7 +18,14 @@ export const query = graphql`
 
 class CharactersPage extends React.Component {
   render() {
-    const characters = this.props.data.got.characters
+    // const characters = this.props.data.got.characters
+    const characters = [
+      { id: 1, name: "111" },
+      { id: 2, name: "222222222" },
+      { id: 3, name: "333333332" },
+    ]
+
+    console.log(this.props)
 
     return (
       <Layout>
@@ -27,7 +34,7 @@ class CharactersPage extends React.Component {
         <ul>
           {characters.map(character => (
             <li key={character.id}>
-              <a>{getName(character)}</a>
+              <a href="/">{getName(character)}</a>
             </li>
           ))}
         </ul>

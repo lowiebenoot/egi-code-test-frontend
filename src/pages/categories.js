@@ -12,10 +12,10 @@ class CategoriesPage extends React.Component {
         <h1>Categories</h1>
         <ul>
           <li>
-            <Link to="/characters">Characters</Link>
+            <Link to="/category/characters">Characters</Link>
           </li>
           <li>
-            <Link to="/books">Books</Link>
+            <Link to="/category/books">Books</Link>
           </li>
         </ul>
       </Layout>
