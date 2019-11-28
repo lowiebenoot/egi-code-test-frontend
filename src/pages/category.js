@@ -6,6 +6,7 @@ import { QueryParamProvider } from "use-query-params"
 import client from "../apollo"
 import Characters from "../components/clientSidePages/characters"
 import CharactersDetail from "../components/clientSidePages/charactersDetail"
+import Books from "../components/clientSidePages/books"
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Router>
           <Characters path="/category/characters" />
           <CharactersDetail path="/category/characters/:characterId" />
+          <Books path="/category/books" />
         </Router>
       </QueryParamProvider>
     </ApolloProvider>
