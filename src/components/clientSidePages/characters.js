@@ -6,6 +6,7 @@ import { Link } from "gatsby"
 import Layout from "../layout/layout"
 import SEO from "../layout/seo"
 import Pagination from "../ui/pagination"
+import LoadingSpinner from "../ui/loadingSpinner"
 import { getName } from "../../utils/character"
 import { usePaginationParam } from "../../utils/routing"
 import styles from "./characters.module.css"
@@ -32,7 +33,7 @@ const CharactersPage = props => {
       <SEO title="Characters" />
       <h1>Characters</h1>
 
-      {loading && <p>Loading...</p>}
+      {loading && <LoadingSpinner />}
 
       {error && <p>Error... :(</p>}
 

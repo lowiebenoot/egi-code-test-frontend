@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
 
 import Layout from "../layout/layout"
+import LoadingSpinner from "../ui/loadingSpinner"
 import SEO from "../layout/seo"
 import { getName, getPlayedBy } from "../../utils/character"
 
@@ -24,7 +25,7 @@ const CharactersDetailPage = ({ characterId }) => {
 
   return (
     <Layout>
-      {loading && <p>Loading...</p>}
+      {loading && <LoadingSpinner />}
       {error && <p>Error... :(</p>}
 
       {data &&
