@@ -7,6 +7,7 @@ import Layout from "../layout/layout"
 import SEO from "../layout/seo"
 import Pagination from "../ui/pagination"
 import LoadingSpinner from "../ui/loadingSpinner"
+import Breadcrumbs from "../ui/breadcrumbs"
 import { getName } from "../../utils/character"
 import { usePaginationParam } from "../../utils/routing"
 import styles from "./characters.module.css"
@@ -31,6 +32,16 @@ const CharactersPage = props => {
   return (
     <Layout>
       <SEO title="Characters" />
+      <Breadcrumbs>
+        <Breadcrumbs.Item>
+          <Link to="/">Home</Link>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Link to="/categories">Categories</Link>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>Characters</Breadcrumbs.Item>
+      </Breadcrumbs>
+
       <h1>Characters</h1>
 
       {loading && <LoadingSpinner />}

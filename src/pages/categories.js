@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout/layout"
+import Breadcrumbs from "../components/ui/breadcrumbs"
 import SEO from "../components/layout/seo"
 
 class CategoriesPage extends React.Component {
@@ -9,6 +10,13 @@ class CategoriesPage extends React.Component {
     return (
       <Layout>
         <SEO title="Categories" />
+        <Breadcrumbs>
+          <Breadcrumbs.Item>
+            <Link to="/">Home</Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>Categories</Breadcrumbs.Item>
+        </Breadcrumbs>
+
         <h1>Categories</h1>
         <ul>
           <li>

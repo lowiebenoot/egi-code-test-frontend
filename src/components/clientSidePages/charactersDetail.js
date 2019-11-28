@@ -1,9 +1,11 @@
 import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import { Link } from "gatsby"
 
 import Layout from "../layout/layout"
 import LoadingSpinner from "../ui/loadingSpinner"
+import Breadcrumbs from "../ui/breadcrumbs"
 import SEO from "../layout/seo"
 import { getName, getPlayedBy } from "../../utils/character"
 
@@ -39,6 +41,19 @@ const CharactersDetailPage = ({ characterId }) => {
           return (
             <>
               <SEO title={name} />
+              <Breadcrumbs>
+                <Breadcrumbs.Item>
+                  <Link to="/">Home</Link>
+                </Breadcrumbs.Item>
+                <Breadcrumbs.Item>
+                  <Link to="/categories">Categories</Link>
+                </Breadcrumbs.Item>
+                <Breadcrumbs.Item>
+                  <Link to="/category/characters">Characters</Link>
+                </Breadcrumbs.Item>
+                <Breadcrumbs.Item>{name}</Breadcrumbs.Item>
+              </Breadcrumbs>
+
               <h1>{name}</h1>
 
               {aliases && aliases.length > 0 && (
