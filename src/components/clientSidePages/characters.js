@@ -1,6 +1,7 @@
 import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
+import { Link } from "gatsby"
 
 import Layout from "../layout/layout"
 import SEO from "../layout/seo"
@@ -31,7 +32,9 @@ const CharactersPage = () => {
         <ul>
           {data.characters.map(character => (
             <li key={character.id}>
-              <a href="/">{getName(character)}</a>
+              <Link to={`/category/characters/${character.id}`}>
+                {getName(character)}
+              </Link>
             </li>
           ))}
         </ul>
