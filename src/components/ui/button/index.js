@@ -13,8 +13,8 @@ const Button = ({ children, className, level, element, disabled, ...rest }) => {
   })
 
   return (
-    <ElementToUse className={classNames} diabled={disabled} {...rest}>
-      {children}s
+    <ElementToUse className={classNames} disabled={disabled} {...rest}>
+      {children}
     </ElementToUse>
   )
 }
