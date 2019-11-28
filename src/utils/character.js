@@ -9,3 +9,13 @@ export const getName = character => {
 
   return "Unknown"
 }
+
+export const getPlayedBy = character => {
+  if (!character.playedBy) {
+    return null
+  }
+
+  const playedBy = character.playedBy.filter(Boolean)
+
+  return playedBy.length ? playedBy : null
+}
