@@ -1,0 +1,12 @@
+@import "components/ui/colors.css";
+
+.breadcrumbs {
+  border-radius: 4px;
+  display: flex;
+  margin-bottom: 30px;
+
+  .itemDevider {
+    margin: 0 10px;
+    color: color(var(--color-primary) tint(30%));
+  }
+}
