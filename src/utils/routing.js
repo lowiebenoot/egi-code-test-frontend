@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useQueryParam, NumberParam } from "use-query-params"
 
 export const usePaginationParam = () => {
