@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/layout/seo"
+import Button from "../components/ui/button"
 
 const IndexPage = () => (
   <Layout>
@@ -16,7 +17,9 @@ const IndexPage = () => (
       varius. Curabitur non pharetra nibh. Pellentesque cursus pellentesque
       elementum.
     </p>
-    <Link to="/categories">categories</Link>
+    <Button element={Link} to="/categories">
+      Browse categories
+    </Button>
   </Layout>
 )
 
