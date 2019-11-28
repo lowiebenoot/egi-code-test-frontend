@@ -8,16 +8,20 @@ import SEO from "../layout/seo"
 import { getName } from "../../utils/character"
 
 const QUERY_CHARACTERS = gql`
-  {
-    characters {
+  query Characters($pageNumber: Int!) {
+    characters(pageNumber: $pageNumber) {
       id
       name
       aliases
     }
   }
 `
-const CharactersPage = () => {
-  const { loading, error, data } = useQuery(QUERY_CHARACTERS)
+const CharactersPage = props => {
+  const { loading, error, data } = useQuery(QUERY_CHARACTERS, {
+    variables: {
+      pageNumber: 1,
+    },
+  })
 
   return (
     <Layout>
