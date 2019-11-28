@@ -1,0 +1,31 @@
+@import "components/ui/colors.css";
+
+.pagination {
+  > :first-child {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .icon {
+      margin-right: 10px;
+    }
+  }
+
+  > :last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    .icon {
+      margin-left: 10px;
+    }
+  }
+
+  .icon {
+    position: relative;
+    bottom: 1px;
+  }
+
+  .disabled {
+    pointer-events: none;
+  }
+}
