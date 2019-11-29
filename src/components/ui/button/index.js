@@ -4,12 +4,18 @@ import cx from "classnames"
 
 import styles from "./styles.module.css"
 
-const Button = ({ children, className, level, element, disabled, ...rest }) => {
+const Button = ({
+  children,
+  className,
+  level,
+  size,
+  element,
+  disabled,
+  ...rest
+}) => {
   const ElementToUse = element
-  const classNames = cx(styles.button, className, {
+  const classNames = cx(styles.button, className, styles[size], styles[level], {
     [styles.disabled]: disabled,
-    [styles.primary]: level === "primary",
-    [styles.secondary]: level === "secondary",
   })
 
   return (
@@ -22,6 +28,7 @@ const Button = ({ children, className, level, element, disabled, ...rest }) => {
 Button.propTypes = {
   children: PropTypes.any.isRequired,
   level: PropTypes.oneOf(["primary", "secondary"]).isRequired,
+  size: PropTypes.oneOf(["small", "large"]).isRequired,
   element: PropTypes.elementType.isRequired,
   disabled: PropTypes.bool,
   className: PropTypes.string,
@@ -30,6 +37,7 @@ Button.propTypes = {
 Button.defaultProps = {
   level: "primary",
   element: "button",
+  size: "large",
 }
 
 export default Button
