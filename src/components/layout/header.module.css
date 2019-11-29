@@ -9,6 +9,10 @@
   background: var(--color-primary);
   color: var(--color-secondary);
 
+  @media only screen and (max-width: 1023px) {
+    padding: 0 10px;
+  }
+
   a {
     color: var(--color-secondary);
   }
@@ -21,6 +25,10 @@
 
     a {
       text-decoration: none;
+    }
+
+    @media only screen and (max-width: 1023px) {
+      font-size: 14px;
     }
   }
 }

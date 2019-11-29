@@ -30,6 +30,10 @@
     url("/images/home-banner.jpg");
   background-position: center;
   background-size: cover;
+
+  @media only screen and (max-width: 1023px) {
+    display: none;
+  }
 }
 
 .content {
@@ -38,5 +42,13 @@
 
   a {
     color: var(--color-accent);
+  }
+
+  @media only screen and (max-width: 1023px) {
+    padding: 30px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding: 10px;
   }
 }

@@ -1,9 +1,14 @@
 .categories {
   display: flex;
+
+  @media only screen and (max-width: 1023px) {
+    flex-direction: column;
+  }
 }
 
 .category {
   flex: 1;
+  margin-bottom: 30px;
 
   .list {
     margin-bottom: 50px;
