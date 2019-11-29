@@ -2,6 +2,8 @@
 
 I built a little Game of Thrones website, powered by Gatsby. I didn't display too much data, just to make sure I don't spoil anything in case you haven't seen Game of Thrones yet 😉.
 
+The website is available at http://egi-code-test-frontend.s3-website-us-east-1.amazonaws.com
+
 ## Client side rendered pages
 
 Next to the pre-built static pages, there are also a few pages that are rendered only on the client side.
