@@ -12,9 +12,11 @@ import { getName } from "../../utils/character"
 import { usePaginationParam } from "../../utils/routing"
 import styles from "./characters.module.css"
 
+const PAGE_SIZE = 20
+
 const QUERY_CHARACTERS = gql`
-  query Characters($pageNumber: Int!) {
-    characters(pageNumber: $pageNumber) {
+  query Characters($pageNumber: Int!, $pageSize: Int!) {
+    characters(pageNumber: $pageNumber, pageSize: $pageSize) {
       id
       name
       aliases
@@ -26,6 +28,7 @@ const CharactersPage = props => {
   const { loading, error, data } = useQuery(QUERY_CHARACTERS, {
     variables: {
       pageNumber,
+      pageSize: PAGE_SIZE,
     },
   })
 
@@ -63,7 +66,7 @@ const CharactersPage = props => {
             className={styles.pagination}
             baseUrl="/category/characters"
             currentPage={pageNumber}
-            hasNextPage={data.characters.length === 10}
+            hasNextPage={data.characters.length === PAGE_SIZE}
           />
         </>
       )}
