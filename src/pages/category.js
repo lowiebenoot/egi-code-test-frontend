@@ -7,6 +7,7 @@ import client from "../apollo"
 import Characters from "../components/clientSidePages/characters"
 import CharactersDetail from "../components/clientSidePages/charactersDetail"
 import Books from "../components/clientSidePages/books"
+import BooksDetail from "../components/clientSidePages/booksDetail"
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Characters path="/category/characters" />
           <CharactersDetail path="/category/characters/:characterId" />
           <Books path="/category/books" />
+          <BooksDetail path="/category/books/:bookId" />
         </Router>
       </QueryParamProvider>
     </ApolloProvider>
