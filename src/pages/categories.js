@@ -32,8 +32,6 @@ class CategoriesPage extends React.Component {
       },
     } = this.props
 
-    console.log({ books, characters })
-
     return (
       <Layout>
         <SEO title="Categories" />
