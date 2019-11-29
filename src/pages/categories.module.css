@@ -1,0 +1,11 @@
+.categories {
+  display: flex;
+}
+
+.category {
+  flex: 1;
+
+  .list {
+    margin-bottom: 50px;
+  }
+}
