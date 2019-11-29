@@ -1,7 +1,9 @@
 import ApolloClient from "apollo-boost"
+import fetch from "isomorphic-fetch"
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql", // @todo use env var
+  uri: process.env.GOT_API_URL,
+  fetch,
 })
 
 export default client
