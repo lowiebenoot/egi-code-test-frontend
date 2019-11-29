@@ -1,97 +1,36 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# EGI code test frontend
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+I built a little Game of Thrones website, powered by Gatsby. I didn't display too much data, just to make sure I don't spoil anything in case you haven't seen Game of Thrones yet 😉.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Client side rendered pages
 
-## 🚀 Quick start
+Next to the pre-built static pages, there are also a few pages that are rendered only on the client side.
 
-1.  **Create a Gatsby site.**
+I used the [gatsby-plugin-create-client-paths](https://www.gatsbyjs.org/packages/gatsby-plugin-create-client-paths/) gatsby plugin to do this.
+It took me a while to get it working though, becuase the url pattern I was trying to achieve was not possible.
+I wanted `/categories/*` to be client side rendered, but `/categories` should have been a static prebuilt page.
+This is not possible with the plugin. I think it can be possible if you change the plugin a bit. I just changed my URL structure a bit to avoid it.
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+## GraphQL
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+I'm fetching data via GraphQL on the client side, but also during the built.
+The `/categories` is a static page, but it shows some data from the API that is being fetched during built time (with the [gatsby-source-graphql plugin](https://www.gatsbyjs.org/packages/gatsby-source-graphql/)).
 
-1.  **Start developing.**
+The dynamic pages use Apollo Client. The app is wrapped with an Apollo provider and the queries are executed via a `useQuery` react hook.
 
-    Navigate into your new site’s directory and start it up.
+## Styling
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+I didn't focus too much on design/styling, I just made it look decent (I'm not a designer after all).
 
-1.  **Open the source code and start editing!**
+Styling is done with css modules (on top of the default global gatsby css). I still prefer "normal" css over all the "css-in-js" solutions. I use postcss with a few plugins.
 
-    Your site is now running at `http://localhost:8000`!
+I also created a few "ui" components that can be re-used easily.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## Deployment
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+I used [gatsby-plugin-s3](https://www.gatsbyjs.org/packages/gatsby-plugin-s3/) to deploy it to S3. There's also a `serverless` plugin you combine with this plugin, but that just seemed to make it more complicated. The plugin on its own also works perfectly and it's very easy to install.
 
-## 🧐 What's inside?
+## Conclusion
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+I think Gatsby is a very powerful tool for creating static websites. It has a lot of functionality out of the box and has loads of plugins, which allow you to make very performant and optimized websites.
+I do have the feeling though that it's not very well suited for making dynamic websites. I think you're better of with [nextjs](https://nextjs.org/) if you're planning on making a website that's partially dynamic, but they're very similar (certainly these days because both tools now support server-side rendering and static site generation, while they both used to do only one of those).
